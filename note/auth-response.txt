@@ -1,0 +1,62 @@
+// -------------------------------------------------------------------------------- //
+
+{
+	“access_token”: “XEr9Z17mo6XzYeFBVeeiSSa307qU8etCQYuETUm0hOEN2k0gWI1zsUxb”,
+	“token_type”: “Bearer”,
+	“expires_in”: 3600,
+	“result_code”: 200,
+	“result_message”: “Login Success”
+}
+
+{
+	“result_code”: 500,
+	“result_message”: “Login Failed”
+}
+
+// --------------------------------------------------------------------------------- //
+
+{
+	“result_code”: 200,
+	“result_message”: “Reset Password Success”
+}
+
+{
+	“result_code”: 500,
+	“result_message”: “Reset Password Failed”
+}
+
+{
+	“result_code”: 400,
+	“result_message”: “Username/Password is Wrong”
+}
+
+// --------------------------------------------------------------------------------- //
+
+{
+	“result_code”: 401,
+	“result_message”: “User Unauthorized”
+}
+//Jika Token Request Salah/Tidak Terdefinisi
+
+
+{
+	“result_code”: 404,
+	“result_message”: “User Role Undefined”
+}
+//Jika User-nya tidak memiliki Role
+
+{
+	“result_code”: 404,
+	“result_message”: “Feature Not Found”
+}
+//Jika User Role tidak memiliki akses ke Fitur/Backend
+
+{
+	“result_code”: 500,
+	“result_message”: “{Get/Insert/Update/Delete Data} Failed”
+}
+
+
+//Jika Kondisi Tidak Terdefinis(Catch)
+
+// --------------------------------------------------------------------------------- //

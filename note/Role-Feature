@@ -1,0 +1,56 @@
+Role-Feature:
+
+1. Lahta Data: 
+Product/Area (Get), 
+CID (Get), 
+Biller (Get), 
+Partner (Get), 
+Group Biller (Get), 
+General Recon Data, 
+Suspect Recon Data
+
+2. Treasury Dana: 
+Product/Area (Get), 
+CID (Get), 
+Biller, 
+Partner, 
+Bank, 
+Account, 
+Group Biller, 
+Group Transfer Funds, 
+Exclude Partner, 
+Calendar, 
+Profile Fee, 
+Correction, 
+General Recon Data, 
+Suspect Recon Data, 
+General Recon Dana, 
+Suspect Recon Dana, 
+Correction Recon Dana
+
+3. IT Ops: 
+Product/Area, 
+CID, 
+Calendar
+
+
+1. Product/Area
+2. CID
+3. Biller
+4. Partner
+5. Bank
+6. Account
+7. Group Biller
+8. Group Transfer Funds
+9. Exclude Partner
+10. Calendar
+11. Profile Fee
+12. Correction
+13. General Recon Data
+14. Suspect Recon Data 
+15. General Recon Dana
+16. Suspect Recon Dana
+17. Correction Recon Dana
+18. User Management
+19. Role Management
+20. Feature Management

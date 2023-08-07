@@ -1,0 +1,38 @@
+1. Super Admin
+All Feature
+
+2. Admin
+All Feature <> User Management
+
+3. Lahta Data:
+Product/Area (Get),
+CID (Get),
+Biller (Get),
+Partner (Get),
+Group Biller (Get),
+General Recon Data,
+Suspect Recon Data
+
+4. Treasury Dana:
+Product/Area (Get),
+CID (Get), Biller,
+Partner,
+Bank,
+Account,
+Group Biller,
+Group Transfer Funds,
+Exclude Partner,
+Calendar,
+Profile Fee,
+Correction,
+General Recon Data,
+Suspect Recon Data,
+General Recon Dana,
+Suspect Recon Dana,
+Correction Recon Dana,
+Formula Transfer
+
+5. IT Ops:
+Product/Area,
+CID,
+Calendar

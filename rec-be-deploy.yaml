@@ -1,0 +1,97 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recon-be-v1
+  namespace: recon-system
+  labels:
+    app: recon-be
+    version: v1
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: recon-be
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: recon-be
+        version: v1
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: recon-be
+        image: 10.168.26.20/library/recon-be:staging
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+        - name: recon-be-secret-volume
+          mountPath: /etc/recon-be-secret-volume
+        env:
+          - name: DB_PASSWORD_RECON_AUTH
+            valueFrom:
+              secretKeyRef:
+                name: recon-be-secret
+                key: DB_BE_PASSWORD
+      volumes:
+      - name: recon-be-secret-volume
+        secret:
+          secretName: recon-be-secret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: recon-be-svc
+  namespace: recon-system
+  labels:
+    app: recon-be
+    service: recon-be-svc
+spec:
+  selector:
+    app: recon-be
+  ports:
+    - name: http
+      port: 8000
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: k3s-gateway
+  namespace: recon-system
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: recon-be-vs
+  namespace: recon-system
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - k3s-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /be/
+    - uri:
+        exact: /be
+    rewrite:
+      uri: /
+    route:
+    - destination:
+        host: recon-be-svc
+        port:
+          number: 8000
